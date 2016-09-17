@@ -1,2 +1,31 @@
-# sniffer
-C++å’ŒPerlå®žçŽ°çš„ç½‘å¡å—…æŽ¢ç¨‹åºï¼Œä¸»è¦å—…æŽ¢TCPçŠ¶æ€
+#Sniffer
+
+C++ºÍPerlÊµÏÖµÄÍø¿¨ÐáÌ½³ÌÐò£¬ÀûÓÃlibpcap, ¿ÉÒÔÖ´ÐÐ¶Ë¿Úsniffer£¬ÅÐ¶Ï¶Ë¿ÚÁ¬½Ó×´Ì¬µÄ³ÌÐò¡£
+
+#ÓÃ·¨
+
+##sniffer.exe
+
+sniffer.exe Ö÷ÒªÖ´ÐÐÐáÌ½¹¤×÷£¬Êä³öTCP±êÖ¾£¨SYN,ACK,FINµÈ£©£¬Ê¹ÓÃC++Íê³É¡£
+
+* -u Ô¶³Ì»úÆ÷ÓÃ»§Ãû
+* -p Ô¶³Ì»úÆ÷ÃÜÂë
+* -d ÏÔÊ¾ËùÓÐµÄÍø¿¨Ãû³Æ
+* -a ÐèÒª×¥°üµÄÔ¶³Ì»úÆ÷µØÖ·
+* -i Ö¸¶¨Òª°ó¶¨µÄÍø¿¨
+* -m Ö´ÐÐ×¥°ü²Ù×÷
+
+sniffer.exe -a 127.0.0.1 -d ÏÔÊ¾±¾»úÍø¿¨
+sniffer.exe -a -i 0 -m ÐáÌ½±¾»úË÷ÒýÎª0µÄÍø¿¨
+sniffer.exe -u testuser -p testpasswd -a 192.168.127.12 -i 4 -m ÐáÌ½Ô¶³Ì192.168.127.12»úÆ÷Ë÷ÒýºÅÎª4µÄÍø¿¨
+
+##stat_tcp.pl
+
+stat_tcp.pl ÊµÏÖÁËÒ»¸ö×´Ì¬»ú£¬¸ù¾ÝC++µÄÊä³öÅÐ¶ÏTCP×´Ì¬¡£<br>
+-p ÃüÁîÐÐÑ¡Ïî£¬ÐèÒªÐáÌ½µÄ±¾»úIP <br>
+
+##ÔËÐÐ
+
+ÐáÌ½±¾»úÔ´IP»òÄ¿µÄIPÎª192.168.0.101£¬²¢ÇÒÍø¿¨Ë÷ÒýÎª0µÄËùÓÐÁ¬½Ó
+sniffer.exe -a 127.0.0.1 -i 0 -m | perl stat_tcp.pl -p 192.168.0.101
+	
