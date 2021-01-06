@@ -1,10 +1,10 @@
-#Sniffer
+# Sniffer
 
 Sniffer is a network adapter sniffer application implemented using C++ and Perl. Based on libpcap, it can monitor sockets telecommunication and check sockets TCP connection status.
 
-#Usage:
+## Usage
 
-##sniffer.exe
+### sniffer.exe
 
 sniffer.exe conducts monitoring and outputs status code of TCP(SYN,ACK,FIN etc), it's command arguments typically includes:
 
@@ -18,13 +18,13 @@ sniffer.exe conducts monitoring and outputs status code of TCP(SYN,ACK,FIN etc),
 * sniffer.exe -a -i 0 -m  :will capture local socket packets of local network interface with id 0.
 * sniffer.exe -u testuser -p testpasswd -a 192.168.127.12 -i 4 -m :capture socket packets of remote host: 192.168.127.12 with interface id 4.
 
-##stat_tcp.pl
+### stat_tcp.pl
 
 stat_tcp.pl implements a FMA，reads tcp status code and check connection status
 
 * -p  ip of host which would been sniffered.
 
-##Running
+### Running
 
 sniffer all of conmmunications established through network interface 0 between local source IP (127.0.0.1) and target IP(192.168.0.101):
 
