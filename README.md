@@ -1,31 +1,31 @@
 #Sniffer
 
-C++和Perl实现的网卡嗅探程序，利用libpcap, 可以执行端口sniffer，判断端口连接状态的程序。
+Sniffer is a network adapter sniffer application implemented using C++ and Perl. Based on libpcap, it can monitor sockets telecommunication and check sockets TCP connection status.
 
-#用法
+#Usage:
 
 ##sniffer.exe
 
-sniffer.exe 主要执行嗅探工作，输出TCP标志（SYN,ACK,FIN等），使用C++完成。
+sniffer.exe conducts monitoring and outputs status code of TCP(SYN,ACK,FIN etc), it's command arguments typically includes:
 
-* -u 远程机器用户名
-* -p 远程机器密码
-* -d 显示所有的网卡名称
-* -a 需要抓包的远程机器地址
-* -i 指定要绑定的网卡
-* -m 执行抓包操作
-
-- sniffer.exe -a 127.0.0.1 -d 显示本机网卡
-- sniffer.exe -a -i 0 -m 嗅探本机索引为0的网卡
-- sniffer.exe -u testuser -p testpasswd -a 192.168.127.12 -i 4 -m 嗅探远程192.168.127.12机器索引号为4的网卡
+* -u remote host username
+* -p remote host password
+* -d display all network interfaces
+* -a address of remote host which would been captured packets.
+* -i binding one network interface
+* -m monitoring
+* sniffer.exe -a 127.0.0.1 -d :will display all network interfaces of local host.
+* sniffer.exe -a -i 0 -m  :will capture local socket packets of local network interface with id 0.
+* sniffer.exe -u testuser -p testpasswd -a 192.168.127.12 -i 4 -m :capture socket packets of remote host: 192.168.127.12 with interface id 4.
 
 ##stat_tcp.pl
 
-stat_tcp.pl 实现了一个状态机，根据C++的输出判断TCP状态。<br>
-* -p 命令行选项，需要嗅探的本机IP <br>
+stat_tcp.pl implements a FMA锛宺eads tcp status code and check connection status
 
-##运行
+* -p  ip of host which would been sniffered.
 
-嗅探本机源IP或目的IP为192.168.0.101，并且网卡索引为0的所有连接<br>
+##Running
+
+sniffer all of conmmunications established through network interface 0 between local source IP (127.0.0.1) and target IP(192.168.0.101):
+
 * sniffer.exe -a 127.0.0.1 -i 0 -m | perl stat_tcp.pl -p 192.168.0.101
-	
